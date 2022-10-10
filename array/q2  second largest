@@ -1,0 +1,98 @@
+
+/* 
+
+
+approach->
+
+  brtue force sort the array arr[1]
+arr[2]
+return them as small and large
+
+second approach 
+  first traverse the entire array then find the largest and smallest num
+  then traverse again and check if arr[i]!= smallest and largest 
+  then these will be the smallest and largest element after second traversal 
+  optimal approach->
+  we take 4 variables small and second small large second large then we update if small is < s small
+  s small =small
+  if s small<small
+  it is s small 
+  same approach for large elements
+
+*/
+code
+#include <bits/stdc++.h>
+   using namespace std;
+
+
+   int ans_2(vector<int>&q)
+   {
+    if(q.size()<2){
+      return -1;
+    }
+    int small=INT_MAX;;
+     int second_small=INT_MAX;
+     for( int i=0;i<q.size();i++){
+        if(q[i]<small){
+          second_small=small;
+          small=q[i];
+        }
+        else if(q[i]<second_small && q[i]!=small)
+        {
+          second_small=q[i];
+
+
+        }
+        }
+       return second_small;
+
+     
+
+   }
+
+   int ans(vector<int>&q)
+   {
+    if(q.size()<2)
+    {
+      return -1;
+    }
+      int large=INT_MIN;
+      int  second_large=INT_MIN;
+
+
+    for (int i = 0; i < q.size(); ++i)
+    {
+      if( large>q[i])
+      {
+        second_large=large;
+        large=q[i];
+      }
+      else if(second_large>q[i] && q[i]!=large)
+      {
+        second_large=q[i];
+      }
+    }
+   return second_large
+   }
+
+
+int main()
+{
+  
+   int n;
+   cin>>n;
+  vector<int> q;
+
+  for(int i=0;i<n;i++){
+    cin>>q[i];
+
+  }
+
+  cout<<ans(q)<<" "<<ans_2(q);
+
+
+
+
+
+  return 0;
+}
