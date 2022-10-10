@@ -1,0 +1,35 @@
+  approach ->
+    brute force->
+     run two loops check [j] > [i];
+     return true else false;
+       optimal one pass 
+       run a loop
+       if arr[i]<arr[i-1] ? return false: return true;
+       
+        leet code rotation->
+         simple  int count =0;
+          arr[0] > arr[n-1]? count ++;
+           run a loop 
+            if arr[i-1] > arr[i] count ++;
+             if count <=1 return false;
+             int n = nums.size()-1;
+        
+        int count = 0;                         
+        
+        if(nums[n]>nums[0]){
+           count++;                   
+        }
+        
+        for(int i = 1;i<=n;i++){
+            
+            if(nums[i-1]>nums[i]){
+                count++;
+            }
+        }
+        
+        if(count<=1){                          
+            return true;
+        }
+        
+        return false;
+        
